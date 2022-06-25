@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 env:
-  OPENSSL_VERSION: 3.0.3
+  OPENSSL_VERSION: 3.0.4
 
 jobs:
   build:
@@ -32,8 +32,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Push the Image
         run: |
-          docker push ${DOCKERHUB_USERNAME}/centos-stream${CENTOS_ADJECTIVE}-python:${PYTHON_VERSION}
+          docker push ${DOCKERHUB_USERNAME}/centos-stream${CENTOS_VERSION}-python:${PYTHON_VERSION}
       - name: Retag to major.minor only (e.g. centos-stream9-python:3.10)
         run: |
-          docker tag ${DOCKERHUB_USERNAME}/centos-stream${CENTOS_ADJECTIVE}-python:${PYTHON_VERSION} ${DOCKERHUB_USERNAME}/centos-stream${CENTOS_ADJECTIVE}-python:${PYTHON_VERSION%.*}
-          docker push ${DOCKERHUB_USERNAME}/centos-stream${CENTOS_ADJECTIVE}-python:${PYTHON_VERSION%.*}
+          docker tag ${DOCKERHUB_USERNAME}/centos-stream${CENTOS_VERSION}-python:${PYTHON_VERSION} ${DOCKERHUB_USERNAME}/centos-stream${CENTOS_VERSION}-python:${PYTHON_VERSION%.*}
+          docker push ${DOCKERHUB_USERNAME}/centos-stream${CENTOS_VERSION}-python:${PYTHON_VERSION%.*}
