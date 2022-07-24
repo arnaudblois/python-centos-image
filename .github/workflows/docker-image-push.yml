@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 env:
-  OPENSSL_VERSION: 3.0.4
+  OPENSSL_VERSION: 3.0.5
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         centos_version: ["8", "9"]
-        python_version: ["3.9.13", "3.10.5", "3.11.0b3"]
+        python_version: ["3.9.13", "3.10.5", "3.11.0b4"]
     env:
       CENTOS_VERSION: ${{ matrix.centos_version }}
       PYTHON_VERSION: ${{ matrix.python_version }}
