@@ -7,18 +7,18 @@ and the latest openSSL.
 
 The images can be accessed using `docker pull <image name>`.
 
-| Centos    | Python   | Image name                                |
-| --------- | -------- | ----------------------------------------- |
-| stream-8  | 3.9.13   | ursamajorlab/centos-stream8-python:3.9    |
-| stream-8  | 3.10.5   | ursamajorlab/centos-stream8-python:3.10   |
-| stream-8  | 3.11.0b4 | ursamajorlab/centos-stream8-python:3.11   |
-| stream-9  | 3.9.13   | ursamajorlab/centos-stream9-python:3.9    |
-| stream-9  | 3.10.5   | ursamajorlab/centos-stream9-python:3.10   |
-| stream-9  | 3.11.0b4 | ursamajorlab/centos-stream9-python:3.11   |
+| Centos    | Python    | Image name                                |
+| --------- | --------- | ----------------------------------------- |
+| stream-8  | 3.9.13    | ursamajorlab/centos-stream8-python:3.9    |
+| stream-8  | 3.10.6    | ursamajorlab/centos-stream8-python:3.10   |
+| stream-8  | 3.11.0rc1 | ursamajorlab/centos-stream8-python:3.11   |
+| stream-9  | 3.9.13    | ursamajorlab/centos-stream9-python:3.9    |
+| stream-9  | 3.10.6    | ursamajorlab/centos-stream9-python:3.10   |
+| stream-9  | 3.11.0rc1 | ursamajorlab/centos-stream9-python:3.11   |
 
 The images are also accessible by using the major.minor.revision tag
 `ursamajorlab/centos-stream<version>-python:<full-python-version>`,
-e.g. ursamajorlab/centos-stream9-python:3.10.5
+e.g. ursamajorlab/centos-stream9-python:3.10.6
 
 # Rationale
 
