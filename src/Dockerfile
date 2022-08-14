@@ -15,14 +15,14 @@ RUN dnf install -y \
   wget \
   zlib-devel
 
-ARG OPENSSL_VERSION="3.0.4"
+ARG OPENSSL_VERSION="3.0.5"
 ARG QUICK_BUILD="false"
 ARG PY_VERSION
 
 RUN echo "Downloading sources"
 
 # BASE_PYTHON_VERSION: we strip the alpha, beta, rc, etc. For instance 3.11.0a3 -> 3.11.0 
-RUN export BASE_PYTHON_VERSION=`echo ${PY_VERSION} | sed -r "s/([0-9]+\.[0-9]+\.[0-9]+)([a-zA-Z][0-9]+)?/\1/"` && \
+RUN export BASE_PYTHON_VERSION=`echo ${PY_VERSION} | sed -r "s/([0-9]+\.[0-9]+\.[0-9]+)([a-zA-Z]+[0-9]+)?/\1/"` && \
   wget -cq https://www.python.org/ftp/python/${BASE_PYTHON_VERSION}/Python-${PY_VERSION}.tgz -O - | tar -xz && \
   wget -cq https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz -O - | tar -xz
 
