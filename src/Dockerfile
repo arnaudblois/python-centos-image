@@ -15,7 +15,7 @@ RUN dnf install -y \
   wget \
   zlib-devel
 
-ARG OPENSSL_VERSION="3.0.5"
+ARG OPENSSL_VERSION="3.1.1"
 ARG QUICK_BUILD="false"
 ARG PY_VERSION
 
@@ -48,7 +48,7 @@ RUN if [ "${QUICK_BUILD}" = true ] ; then OPTIMIZATION="" ; else OPTIMIZATION="-
   --with-openssl=/usr/local/ssl \
   --enable-loadable-sqlite-extensions \
   --enable-shared \
-	--with-system-ffi \
+  --with-system-ffi \
   --with-openssl-rpath=auto \
   --disable-test-modules \
   ${OPTIMIZATION}
@@ -57,24 +57,24 @@ RUN make --quiet altinstall
 # We make sure to remove all the fluff
 # recipe taken from the official image https://github.com/docker-library/python/
 RUN find /usr/local -depth \
-		\( \
-			\( -type d -a \( -name test -o -name tests -o -name idle_test \) \) \
-			-o \
-			\( -type f -a \( -name '*.pyc' -o -name '*.pyo' \) \) \
-		\) -exec rm -rf '{}' +;
+  \( \
+  \( -type d -a \( -name test -o -name tests -o -name idle_test \) \) \
+  -o \
+  \( -type f -a \( -name '*.pyc' -o -name '*.pyo' \) \) \
+  \) -exec rm -rf '{}' +;
 # We also remove the headers and doc for openSSL as they are no longer needed.
 RUN rm -rf /usr/local/ssl/share /usr/local/ssl/include
 
 FROM base_image
 RUN dnf install -y --setopt=install_weak_deps=False \
-    bzip2 \
-    ca-certificates \
-    libffi \
-    ncurses \
-    nss \
-    sqlite \
-    wget \
-    zlib && \
+  bzip2 \
+  ca-certificates \
+  libffi \
+  ncurses \
+  nss \
+  sqlite \
+  wget \
+  zlib && \
   dnf clean dbcache && \
   dnf clean all && \
   dnf autoremove -y && \
