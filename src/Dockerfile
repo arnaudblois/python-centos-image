@@ -15,7 +15,7 @@ RUN dnf install -y \
   wget \
   zlib-devel
 
-ARG OPENSSL_VERSION="3.1.3"
+ARG OPENSSL_VERSION="3.2.1"
 ARG QUICK_BUILD="false"
 ARG PY_VERSION
 
